@@ -47,8 +47,8 @@ export const SideBar: React.FC<Props> = ({ packageJsonFile }) => {
     };
   }, []);
   return (
-    <Box>
-      <Box flex="1" overflowY="scroll" h="90vh">
+    <Flex direction="column" h="100vh">
+      <Box flex="1" overflowY="scroll" h="full">
         {packageDependencyList && (
           <>
             {!isInstallListEmpty && (
@@ -83,7 +83,7 @@ export const SideBar: React.FC<Props> = ({ packageJsonFile }) => {
         )}
       </Box>
       <SyncInstallListPackagesToModulesButton />
-    </Box>
+    </Flex>
   );
 };
 

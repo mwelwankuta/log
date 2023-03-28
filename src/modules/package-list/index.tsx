@@ -22,6 +22,7 @@ export const PackageList: React.FC = () => {
     <Grid gridTemplateColumns={"60% 40%"}>
       <GridItem>
         <SearchBar
+          p="3"
           packageJsonFile={packageJsonFile}
           setSearchTerm={setSearchTerm}
           setPackages={(searchResults) => {
@@ -30,7 +31,7 @@ export const PackageList: React.FC = () => {
           }}
         />
 
-        <Box flex="1" overflowY="scroll" h="90vh">
+        <Box flex="1" overflowY="scroll" h="90vh" pl="3">
           {loading && <FullPageSpinner />}
 
           {packages?.objects.map(({ package: pk }) => (

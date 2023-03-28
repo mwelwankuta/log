@@ -20,7 +20,7 @@ export default function App() {
         </>
       ) : (
         <>
-          <Box w="full" pl="2" mx="auto" overflow="hidden">
+          <Box w="full" mx="auto" overflow="hidden">
             <PackageList />
           </Box>
         </>

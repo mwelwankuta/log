@@ -7,11 +7,18 @@ import {
   Flex,
   Text,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const ProjectPathSelector: React.FC = () => {
   const [showPicker, setShowPicker] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      setLoading(false);
+      setShowPicker(false);
+    };
+  }, []);
 
   return (
     <Box display="flex" alignItems="center" justifyContent="center" h="100vh">
@@ -36,7 +43,7 @@ export const ProjectPathSelector: React.FC = () => {
             bg="transparent"
             onClick={() => {
               setLoading(true);
-              setShowPicker((picker) => !picker);
+              setShowPicker(true);
             }}
           >
             {loading ? <ButtonSpinner /> : "Open Existing"}

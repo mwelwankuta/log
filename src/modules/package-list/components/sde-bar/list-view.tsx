@@ -74,7 +74,7 @@ export const SyncInstallListPackagesToModulesButton = () => {
   return (
     <>
       <Divider />
-      <Box p="2" gap="2">
+      <Box p="2" gap="2" bg="gray.100">
         <Button
           size="sm"
           w="full"

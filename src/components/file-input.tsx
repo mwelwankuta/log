@@ -1,11 +1,12 @@
 import {
   projectPathContext,
-  ProjectPathContextValues
+  ProjectPathContextValues,
 } from "@/context/project-path";
 import { Input, InputProps } from "@chakra-ui/react";
-import { useContext, useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useContext, useEffect, useRef } from "react";
 
 interface FileInputProps extends InputProps {
+  // setPicker: Dispatch<SetStateAction<boolean>>;
   showPicker: boolean;
 }
 
@@ -18,7 +19,7 @@ export const ProjectPicker: React.FC<FileInputProps> = (props) => {
   useEffect(() => {
     if (filePickerRef.current && props.showPicker == true) {
       filePickerRef.current.webkitdirectory = true;
-      filePickerRef.current?.click();
+      filePickerRef.current.click();
     }
   }, [props.showPicker]);
 
@@ -28,11 +29,19 @@ export const ProjectPicker: React.FC<FileInputProps> = (props) => {
       type="file"
       ref={filePickerRef}
       display="none"
+      onBlur={() => alert('blurred')}
       onChange={(e) => {
-        const files = Object.values(e.target.files as unknown as FileList);
-        const packageJsonFile = files.find(
-          (file) => file.name == "package.json"
-        ) as File;
+        const packageJsonFile = Object.values(
+          e.target.files as unknown as FileList
+        ).find((file) => file.name == "package.json") as File;
+
+        console.log(packageJsonFile);
+        
+        if (!packageJsonFile) {
+          alert("Could not find a package.json file.");
+          return;
+        }
+
         setPackageJsonFile(packageJsonFile);
 
         const jsonFile = {

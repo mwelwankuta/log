@@ -1,9 +1,9 @@
 {
-  "name": "learningelectron",
-  "version": "2.1.0",
+  "name": "log",
+  "version": "1.0.0",
   "main": "dist-electron/main/index.js",
-  "description": "Electron Vite React boilerplate.",
-  "author": "草鞋没号 <308487730@qq.com>",
+  "description": "Npm you can see.",
+  "author": "Mwelwa Nkuta <mwelwankuta@gmail.com>",
   "license": "MIT",
   "private": true,
   "debug": {

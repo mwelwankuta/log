@@ -55,8 +55,8 @@ export const SearchBar: React.FC<Props> = (props) => {
   }, []);
 
   return (
-    <Box {...props} borderBottom={"1px solid #eee"} w="full" p="3">
-      <HeaderActions packageJsonFile={packageJsonFile}/>
+    <Box {...props} borderBottom={"1px solid #eee"} w="full">
+      <HeaderActions packageJsonFile={packageJsonFile} />
       <Box alignItems="center" gap="3" maxW="full" mx="auto">
         <form onSubmit={handleSubmit} style={{ width: "100%" }}>
           <Box display="flex" alignItems="center" gap="2" w={"full"}>
@@ -105,6 +105,7 @@ const HeaderActions: React.FC<HeaderActionsProps> = ({ packageJsonFile }) => {
           bg="gray.600"
           onClick={() => {
             setPackageJsonFile(null);
+            localStorage.removeItem("packageJsonFile");
           }}
         >
           <CloseButton size="sm" />
